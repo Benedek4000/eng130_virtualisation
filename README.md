@@ -1,4 +1,30 @@
-# Vagrant
+# Virtualisation
+
+Virtualisation is creating a virtual version of a computer, 
+so that everyone can work in the same environment.
+
+## Benefits
+
+- everybody uses the same environment
+- reduced costs
+- faster deployment
+- greater control
+
+We should use the tools described below to 
+enjoy these benefits throughout the DevOps lifecycle.
+
+## Dev Env
+
+Development Environment provides facilities and software 
+to programmers for software development
+
+## Vagrant
+
+Vagrant is a software product to build and maintain virtual development environments.
+
+## VirtualBox
+
+VirtualBox is a hypervisor for virtualisation.
 
 ## Installation guide
 
