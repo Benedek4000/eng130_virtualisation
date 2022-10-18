@@ -1,5 +1,15 @@
 # Vagrant
 
+## Installation guide
+
+### Ruby
+
+### Vagrant
+
+### VirtualBox
+
+### Start VM
+
 ## Linux commands
 
 - update / check connectivity: sudo apt-get update
