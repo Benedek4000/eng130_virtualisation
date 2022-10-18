@@ -4,11 +4,15 @@
 
 ### Ruby
 
+- install latest Ruby
+
 ### Vagrant
+
+- install latest Vagrant
 
 ### VirtualBox
 
-### Start VM
+- install VirtualBox 6.1
 
 ## Vagrant commands
 
