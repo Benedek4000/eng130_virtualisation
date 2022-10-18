@@ -3,6 +3,8 @@
 Virtualisation is creating a virtual version of a computer, 
 so that everyone can work in the same environment.
 
+![alt text](https://github.com/Benedek4000/eng130_virtualisation/blob/main/vagrant_diagram.png)
+
 ## Benefits
 
 - everybody uses the same environment
