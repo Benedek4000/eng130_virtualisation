@@ -10,6 +10,13 @@
 
 ### Start VM
 
+## Vagrant commands
+
+- start vm: `vagrant up`
+- reload vm: `vagrant reload`
+- connect to running vm: `vagrant ssh`
+- stop vm: `vagrant halt`
+
 ## Linux commands
 
 - update / check connectivity: `sudo apt-get update`
