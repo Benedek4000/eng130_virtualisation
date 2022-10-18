@@ -45,3 +45,9 @@
 	- if process already started, `bg` to background it
 	- run process in background: `command &`
 	- if process in background, `fg` to foreground it
+- check tool/software status: `systemcrl status toolname`
+
+## Create network between localhost and VM
+
+- `sudo apt-get install nginx -y`
+- `systemctl start/status nginx`
