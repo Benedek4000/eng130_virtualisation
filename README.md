@@ -125,3 +125,13 @@ On VM:
 - within that file, replace info in the location part: `proxy_pass http://localhost:insert port;`
 - test syntax with `sudo nginx -t`
 - restart nginx: `sudo systemctl restart nginx`
+
+## Provision
+
+- paste this to top of Vagrantfile:
+```commandline
+$script = <<-'SCRIPT'
+[insert command]
+SCRIPT  
+```
+- add this line to vagrantfile: `config.vm.provision "shell", inline: $script, run: "always" `
