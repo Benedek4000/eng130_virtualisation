@@ -90,3 +90,14 @@ VirtualBox is a hypervisor for virtualisation.
 
 - `sudo apt-get install nginx -y`
 - `systemctl start/status nginx`
+
+## Create synced folder between localhost and VM
+
+- add to Vagrantfile: `config.vm.synced_folder "./host_folder", "target_folder"` 
+- more info: [vagrant Synced Folders Documentation](https://www.vagrantup.com/docs/synced-folders/basic_usage)
+
+## Bash Scripting
+
+- create bash.sh
+- make it executable: `sudo chmod +x filename`
+
