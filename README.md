@@ -94,10 +94,28 @@ VirtualBox is a hypervisor for virtualisation.
 ## Create synced folder between localhost and VM
 
 - add to Vagrantfile: `config.vm.synced_folder "./host_folder", "target_folder"` 
-- more info: [vagrant Synced Folders Documentation](https://www.vagrantup.com/docs/synced-folders/basic_usage)
+- more info: [Vagrant Synced Folders Documentation](https://www.vagrantup.com/docs/synced-folders/basic_usage)
 
 ## Bash Scripting
 
 - create bash.sh
 - make it executable: `sudo chmod +x filename`
+
+## Testing environment and running app
+
+On host:
+- instal bundler: `gem install bundler`
+- install required dependencies for testing: `bundle`
+- test env using: `rake spec` at folder /environment/spec_tests
+
+On VM:
+- start nginx: `sudo systemctl start nginx`
+- enable nginx: `sudo systemctl enable nginx`
+- install nodejs 6.x 1/2: `sudo curl -sL https://deb.nodesource.com=setup_6.x | bash -E bash -`
+- install nodejs 6.x 2/2: `sudo apt-get install -y nodejs`
+- test nodejs version: `nodejs --version`
+- install pm2: `sudo npm install pm2 -g`
+- go inside app folder, where app.js is located
+- run `npm install`
+- run app: `npm start`
 
