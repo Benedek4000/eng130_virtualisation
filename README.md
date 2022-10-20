@@ -138,5 +138,44 @@ SCRIPT
 
 ## Environment variables
 
-- sysntax NAME=BENEDEK
+- syntax: export `NAME=BENEDEK`
 - check: `env`
+- or for presistent variables, add command to `sudo nano .profile`
+
+## Multiple VMs example
+
+```
+Vagrant.configure("2") do |config|
+    config.vm.define "app" do |app|
+      app.vm.box = "ubuntu/bionic64"
+      app.vm.network "private_network", ip: "192.168.10.100"
+      app.vm.synced_folder ".", "/home/vagrant/app" # change it to your home location 
+      app.vm.provision "shell", path: "environment/provision.sh", privileged: false
+                                     # provide path for your provision.sh 
+    end
+  
+    config.vm.define "db" do |db|
+      db.vm.box = "ubuntu/bionic64"
+      db.vm.network "private_network", ip: "192.168.10.150"
+      
+    end
+end
+```
+
+## Installing MongoDB
+
+be careful of these keys, they will go out of date
+- `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927`
+- `echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list`
+- `sudo apt-get update -y`
+- `sudo apt-get upgrade -y`
+- `sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20`
+
+## Using MongoDB
+
+- `sudo nano /etc/mongod.conf` to edit IP to 0.0.0.0
+- `sudo systemctl enable mongod`
+- `sudo systemctl restart mongod`
+- in app folderin app VM: `node seeds/seed.js`
+- `npm start`
+
