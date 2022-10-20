@@ -135,3 +135,8 @@ $script = <<-'SCRIPT'
 SCRIPT  
 ```
 - add this line to vagrantfile: `config.vm.provision "shell", inline: $script, run: "always" `
+
+## Environment variables
+
+- sysntax NAME=BENEDEK
+- check: `env`

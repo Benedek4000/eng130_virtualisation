@@ -22,16 +22,28 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
 
- config.vm.box = "ubuntu/xenial64"
- config.vm.network "private_network", ip: "192.168.10.100" 
- config.vm.synced_folder ".", "/home/vagrant/app"
- #config.vm.provision "shell", inline: $script, run: "always"
- config.vm.provision "shell", path: "provision.sh", run: "always"
- config.vm.boot_timeout = 600
- config.vm.provider :virtualbox do |vb|
-  vb.customize ["modifyvm", :id, "--memory", "2048"]
-  vb.customize ["modifyvm", :id, "--cpus", "2"]
-  vb.customize ["modifyvm", :id, "--vram", "256"]   
+ config.vm.define "app" do |app|
+  app.vm.box = "ubuntu/bionic64"
+  app.vm.network "private_network", ip: "192.168.10.100"
+  app.vm.synced_folder ".", "/home/vagrant/app"
+  app.vm.provision "shell", path: "environment/provision.sh", privileged: false
  end
+
+ config.vm.define "db" do |db|
+  db.vm.box = "ubuntu/bionic64"
+  db.vm.network "private_network", ip: "192.168.10.150"
+ end 
+
+ #config.vm.box = "ubuntu/xenial64"
+ #config.vm.network "private_network", ip: "192.168.10.100" 
+ #config.vm.synced_folder "sync", "/home/vagrant/sync"
+ #config.vm.provision "shell", inline: $script, run: "always"
+ #config.vm.provision "shell", path: "provision.sh", run: "always"
+ #config.vm.boot_timeout = 600
+ #config.vm.provider :virtualbox do |vb|
+  #vb.customize ["modifyvm", :id, "--memory", "2048"]
+  #vb.customize ["modifyvm", :id, "--cpus", "2"]
+  #vb.customize ["modifyvm", :id, "--vram", "256"]   
+ #end
 
 end
